@@ -33,21 +33,21 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
 
-     const login = () => {
-         const data= {
-             email : username,
-             password:password
-         }
-         API.post('/login',data).then(res=>{
-             if (res.data.error ===false){
-                 alert(res.data.token)
-             }else {
-                  setMessage(res.data.msg)
-                 handleClickOpen()
-             }
-         }).catch(error=>{
-             console.log(error)
-         })
+    const login = () => {
+        const data = {
+            email: username,
+            password: password
+        }
+        API.post('/login', data).then(res => {
+            if (res.data.error === false) {
+                alert(res.data.token)
+            } else {
+                setMessage(res.data.msg)
+                handleClickOpen()
+            }
+        }).catch(error => {
+            console.log(error)
+        })
     }
     const [open, setOpen] = useState(false);
 
@@ -82,8 +82,8 @@ const Login = () => {
             </Dialog>
             <Card className={'new-login-card'}>
 
-            <h2 className={'bienvenue'}>Bienvenue dans Votre Espace Patient AP-HA</h2> 
-                
+                <h2 className={'bienvenue'}>Bienvenue dans Votre Espace Patient AP-HA</h2>
+
                 <FormControl className={classes.margin}>
                     <InputLabel htmlFor="input-with-icon-adornment">veuillez saisir votre e-mail</InputLabel>
                     <Input
@@ -109,7 +109,7 @@ const Login = () => {
                             </InputAdornment>
                         }
                     />
-                    {message &&(
+                    {message && (
                         <span>{message}</span>
                     )}
                 </FormControl>

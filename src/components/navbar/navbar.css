@@ -9,15 +9,13 @@
     width: 50%;
     font-size: 2rem;
     font-weight: bold;
-    color : white;
+    color: white;
     text-align: left;
     padding-top: 1rem;
-    
-    
 }
 
 .trio {
-    
+
     width: 40%;
     margin-left: 58rem;
     display: flex;
@@ -41,6 +39,6 @@
     display: flex;
     justify-content: space-evenly;
     margin-right: 20rem;
-    
+
 }
 

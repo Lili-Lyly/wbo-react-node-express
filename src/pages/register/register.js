@@ -5,23 +5,23 @@ import API from "../../api/api";
 
 
 const Register = () => {
-    const [password,setPassword]= useState('')
-     const [email,setEmail]= useState('')
-    const [firstName,setFirstName]= useState('')
-    const [lastName,setLastName]= useState('')
-    const send = ()=>{
-       
-        const data = {firstName,lastName,email,password}
-        API.post('/register',data)
-            .then(res=>{
+    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const send = () => {
+
+        const data = {firstName, lastName, email, password}
+        API.post('/register', data)
+            .then(res => {
                 console.log(res.data)
-                if (res.data.status ===true){
+                if (res.data.status === true) {
                     alert('OK !')
-                }else {
+                } else {
                     alert(res.data)
                 }
             })
-            .catch(err=>{
+            .catch(err => {
                 console.log(err)
             })
     }
@@ -37,7 +37,7 @@ const Register = () => {
                         value={firstName}
                         onChange={event => setFirstName(event.target.value)}
                         placeholder={'Prenom'}/>
-                         <input
+                    <input
                         value={lastName}
                         onChange={event => setLastName(event.target.value)}
                         placeholder={'Nom'}/>
@@ -50,7 +50,7 @@ const Register = () => {
                         value={password}
                         onChange={event => setPassword(event.target.value)}
                         type={'password'} placeholder={'Password'}/>
- 
+
                 </div>
                 <div className={'actions-rgister'}>
                     <div onClick={send} className={'auth-rgister'}>
