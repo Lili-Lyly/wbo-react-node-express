@@ -5,6 +5,7 @@ import Register from "./pages/register/register"
 
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom"
 import Home from './pages/index/home';
+import Accueil from "./pages/accueil/accueil";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path={'/login'} component={Login}/>
                 <Route path={'/register'} component={Register}/>
                 <Route path={'/index'} component={Home}/>
+                <Route path={'/accueil'} component={Accueil}/>
             </Switch>
         </BrowserRouter>
     )

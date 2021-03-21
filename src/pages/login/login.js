@@ -17,6 +17,7 @@ import {AccountCircle, Lock} from "@material-ui/icons";
 import {makeStyles} from '@material-ui/core/styles';
 import {forwardRef, useState} from "react";
 import API from "../../api/api";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     margin: {
@@ -32,18 +33,21 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
-
+    const history = useHistory()
+    const navigate = (path) => {
+        history.push(path)
+    }
     const login = () => {
         const data = {
             email: username,
             password: password
         }
         API.post('/login', data).then(res => {
-            if (res.data.error === false) {
-                alert(res.data.token)
+            if (res.data.status === false) {
+                alert(res.data.msg)
             } else {
-                setMessage(res.data.msg)
-                handleClickOpen()
+                localStorage.setItem('user', JSON.stringify(res.data))
+                navigate('/accueil')
             }
         }).catch(error => {
             console.log(error)

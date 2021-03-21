@@ -1,5 +1,5 @@
 import './register.css'
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useState} from "react";
 import API from "../../api/api";
 
@@ -9,16 +9,18 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+    const history = useHistory()
+    const navigate = (path) => {
+        history.push(path)
+    }
     const send = () => {
-
         const data = {firstName, lastName, email, password}
         API.post('/register', data)
             .then(res => {
                 console.log(res.data)
                 if (res.data.status === true) {
-                    alert('OK !')
                 } else {
-                    alert(res.data)
+                    navigate('/login')
                 }
             })
             .catch(err => {
