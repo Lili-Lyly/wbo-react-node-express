@@ -1,4 +1,4 @@
-const mongoose = require('projet/server/server/model/mongoose')
+const mongoose = require('mongoose')
 const shema = mongoose.Schema({
     firstname: {
         type: String,
